@@ -2,7 +2,6 @@
     https://www.itu.int/rec/T-REC-H.273
     https://pub.smpte.org/doc/st170/20041130-pub/st0170-2004_stable2010.pdf
     https://www.itu.int/rec/r-rec-bt.470/en
-    https://pub.smpte.org/doc/rp177/19931101-pub/rp0177-1993_stable2010.pdf
 */
 
 /*
@@ -11,7 +10,7 @@
     FCC 1953:   Kr = 0.30,   Kb = 0.11
     BT.470/601: Kr = 0.299,  Kb = 0.114
     SMPTE 240M: Kr = 0.212,  Kb = 0.087
-    BT.709:     Kr = 0.2126, Kb = 0.0722 <- Kr = 0.2126390059, Kb = 0.0721923154
+    BT.709:     Kr = 0.2126, Kb = 0.0722
     BT.2020:    Kr = 0.2627, Kb = 0.0593
 
     Kg = 1.0 - Kb - Kr
