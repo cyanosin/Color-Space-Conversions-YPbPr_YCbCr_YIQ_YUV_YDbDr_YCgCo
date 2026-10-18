@@ -2,6 +2,7 @@
     https://www.itu.int/rec/T-REC-H.273
     https://pub.smpte.org/doc/st170/20041130-pub/st0170-2004_stable2010.pdf
     https://www.itu.int/rec/r-rec-bt.470/en
+    https://pub.smpte.org/doc/rp177/19931101-pub/rp0177-1993_stable2010.pdf
 */
 
 /*
@@ -10,7 +11,7 @@
     FCC 1953:   Kr = 0.30,   Kb = 0.11
     BT.470/601: Kr = 0.299,  Kb = 0.114
     SMPTE 240M: Kr = 0.212,  Kb = 0.087
-    BT.709:     Kr = 0.2126, Kb = 0.0722
+    BT.709:     Kr = 0.2126, Kb = 0.0722 <- Kr = 0.2126390059, Kb = 0.0721923154
     BT.2020:    Kr = 0.2627, Kb = 0.0593
 
     Kg = 1.0 - Kb - Kr
@@ -53,9 +54,9 @@ vec3 RGB_to_YCbCr(vec3 rgb)
 
 vec3 YCbCr_to_RGB(vec3 ycc)
 {
-    float Y  = (ycc.x * 255.0 -  16.0) / 219.0;
-    float Pb = (ycc.y * 255.0 - 128.0) / 224.0;
-    float Pr = (ycc.z * 255.0 - 128.0) / 224.0;
+    float Y  = (255.0 * ycc.x -  16.0) / 219.0;
+    float Pb = (255.0 * ycc.y - 128.0) / 224.0;
+    float Pr = (255.0 * ycc.z - 128.0) / 224.0;
 
     float R = Y + 2.0 * (1.0 - Kr) * Pr;
     float B = Y + 2.0 * (1.0 - Kb) * Pb;
@@ -80,8 +81,8 @@ vec3 RGB_to_YCbCr_FR(vec3 rgb)
 vec3 YCbCr_FR_to_RGB(vec3 ycc)
 {
     float Y  = ycc.x;
-    float Pb = (ycc.y * 255.0 - 128.0) / 255.0;
-    float Pr = (ycc.z * 255.0 - 128.0) / 255.0;
+    float Pb = (255.0 * ycc.y - 128.0) / 255.0;
+    float Pr = (255.0 * ycc.z - 128.0) / 255.0;
 
     float R = Y + 2.0 * (1.0 - Kr) * Pr;
     float B = Y + 2.0 * (1.0 - Kb) * Pb;
